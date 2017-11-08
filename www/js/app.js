@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','videos.controllers'])
+angular.module('mimizik', ['ionic', 'mimizik.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','v
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('videos', {
+    .state('tab', {
     url: '/',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -78,12 +78,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','v
 //      }
 //    }
 //  })
-  .state('videos.list',{
+  .state('tab.videoslist',{
       url: 'videos',
       views: {
          'tab-videosList': {
             templateUrl: 'templates/videos/list.html',
-            controller: 'VideosCtrl'
+            controller: 'ListCtrl'
+          } 
+      }
+  })
+  .state('tab.artisteslist',{
+      url: 'artistes',
+      views: {
+         'tab-artistesList': {
+            templateUrl: 'templates/artistes/list.html',
+            controller: 'ListCtrl'
           } 
       }
   })
