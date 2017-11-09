@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('mimizik', ['ionic', 'mimizik.controllers'])
+angular.module('mimizik', ['ionic', 'videos.controllers','videos.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -83,7 +83,7 @@ angular.module('mimizik', ['ionic', 'mimizik.controllers'])
       views: {
          'tab-videosList': {
             templateUrl: 'templates/videos/list.html',
-            controller: 'ListCtrl'
+            controller: 'VideosListCtrl'
           } 
       }
   })
@@ -92,7 +92,7 @@ angular.module('mimizik', ['ionic', 'mimizik.controllers'])
       views: {
          'tab-artistesList': {
             templateUrl: 'templates/artistes/list.html',
-            controller: 'ListCtrl'
+            controller: 'ArtistesListCtrl'
           } 
       }
   })
