@@ -5,9 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','videos.controllers'])
+angular.module('mimizik', ['ionic', 'videos.controllers','mimizik.constants','artistes.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$http) {
+  $http.defaults.headers.common.Authorization = 'Basic bWltaXppa19mcm9udDptaW1pemlrX2FwaTk3MQ==';
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,7 +24,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','v
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -32,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','v
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('videos', {
+    .state('tab', {
     url: '/',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -78,12 +83,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','v
 //      }
 //    }
 //  })
-  .state('videos.list',{
+  .state('tab.videoslist',{
       url: 'videos',
       views: {
          'tab-videosList': {
             templateUrl: 'templates/videos/list.html',
-            controller: 'VideosCtrl'
+            controller: 'VideosListCtrl'
+          } 
+      }
+  })
+  
+  .state('tab.artisteslist',{
+      url: 'artistes',
+      views: {
+         'tab-artistesList': {
+            templateUrl: 'templates/artistes/list.html',
+            controller: 'ArtistesListCtrl'
           } 
       }
   })
