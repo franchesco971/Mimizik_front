@@ -1,5 +1,5 @@
-angular.module('mimizik')
+angular.module('mimizik.constants',[])
 
-.constant('BackEnd', {
-   backUrl: 'http://127.0.0.1:8000/api/'
+.constant('BackEndParameters', {
+   backUrl: 'http://localhost:8888/api/'
 });

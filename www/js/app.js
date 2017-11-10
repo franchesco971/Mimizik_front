@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('mimizik', ['ionic', 'videos.controllers','videos.controllers'])
+angular.module('mimizik', ['ionic', 'videos.controllers','mimizik.constants','artistes.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +23,11 @@ angular.module('mimizik', ['ionic', 'videos.controllers','videos.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
+    
+//    var auth = $base64.encode("mimizik_front:mimizik_api971");
+//    $httpProvider.defaults.headers.common.Authorization = auth;
+    $httpProvider.defaults.headers.common['Authorization'] = 'Basic bWltaXppa19mcm9udDptaW1pemlrX2FwaTk3MQ==';
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -87,6 +91,7 @@ angular.module('mimizik', ['ionic', 'videos.controllers','videos.controllers'])
           } 
       }
   })
+  
   .state('tab.artisteslist',{
       url: 'artistes',
       views: {
