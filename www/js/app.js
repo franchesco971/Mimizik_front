@@ -7,8 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('mimizik', ['ionic', 'videos.controllers','mimizik.constants','artistes.controllers'])
 
-.run(function($ionicPlatform,$http) {
-  $http.defaults.headers.common.Authorization = 'Basic bWltaXppa19mcm9udDptaW1pemlrX2FwaTk3MQ==';
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,10 +24,10 @@ angular.module('mimizik', ['ionic', 'videos.controllers','mimizik.constants','ar
 })
 
 .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {};
-  $httpProvider.defaults.headers.put = {};
-  $httpProvider.defaults.headers.patch = {};
+    
+//    var auth = $base64.encode("mimizik_front:mimizik_api971");
+//    $httpProvider.defaults.headers.common.Authorization = auth;
+    $httpProvider.defaults.headers.common['Authorization'] = 'Basic bWltaXppa19mcm9udDptaW1pemlrX2FwaTk3MQ==';
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
