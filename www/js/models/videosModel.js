@@ -4,6 +4,9 @@ angular.module('mimizik')
     return {
         getPaginatedVideos : function(page) { 
             return $http.get(BackEndParameters.backUrl+'videos',{params:{page:page}});
+        },
+        getVideo : function(id) {
+            return $http.get(BackEndParameters.backUrl+'videos/'+id,{});
         }
     };
 }]);

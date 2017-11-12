@@ -1,8 +1,9 @@
 angular.module('videos.controllers', [])
 
-.controller('VideosListCtrl', function($scope, $http, BackEndParameters,videoModel) {
+.controller('VideosListCtrl', function($scope, videoModel) {
 //.controller('vListCtrl', function($scope) {
     $scope.test='dazdzada2';
+    $scope.testFunction=function() {};
     
     videoModel.getPaginatedVideos(3)
     .then(function(data) {
@@ -18,4 +19,11 @@ angular.module('videos.controllers', [])
 //    })
 //            .then(function(data) { console.log(data); });
 
-});
+})
+.controller('VideosShowCtrl', function($scope, $stateParams, videoModel) {
+    $scope.video = videoModel.getVideo($stateParams.videoId)
+    .then(function(data) {
+        $scope.video = data.data;
+    });
+})
+;

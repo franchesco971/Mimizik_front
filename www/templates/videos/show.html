@@ -1,0 +1,24 @@
+<ion-view view-title="{{video._embedded.artistes_name}} - {{video.titre}}">
+    <ion-content>
+        <div class="list card">
+
+            <div class="item item-avatar">
+              <img icon-on="ion-man">
+              <h2>{{video._embedded.artistes_name}} - {{video.titre}}</h2>
+              <p>{{video.date}}</p>
+            </div>
+
+            <div class="item item-body">
+              <img class="full-image" src="http://img.youtube.com/vi/{{video.url}}/1.jpg">
+              <p>
+                {{video.description}}
+              </p>
+              <p>
+                <a href="#" class="subdued">1 Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+              </p>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

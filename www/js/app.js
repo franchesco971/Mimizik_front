@@ -91,6 +91,11 @@ angular.module('mimizik', ['ionic', 'videos.controllers','mimizik.constants','ar
           } 
       }
   })
+    .state('videosShow',{
+        url: '/videos/:videoId',
+        templateUrl: 'templates/videos/show.html',
+        controller: 'VideosShowCtrl'
+    })
   
   .state('tab.artisteslist',{
       url: 'artistes',

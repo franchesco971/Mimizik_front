@@ -1,8 +1,12 @@
-<ion-view view-title="Videos list">
+<ion-view view-title="Liste des vidéos">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="video in videos">
-                <img ng-src="http://img.youtube.com/vi/{{video.url}}/1.jpg" width="20" height="20"> {{video.id}} : {{video._embedded.artistes_name}} - {{video.titre}}
+            <ion-item ng-repeat="video in videos" class="item-thumbnail-left" href="/#/videos/{{video.id}}">
+                
+                <img ng-src="http://img.youtube.com/vi/{{video.url}}/1.jpg" width="20" height="20">
+                <h2>{{video._embedded.artistes_name}} - {{video.titre}}</h2>
+                <p>{{video.description}}</p>
+                  
             </ion-item>
         </ion-list>
     </ion-content>
